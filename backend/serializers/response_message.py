@@ -1,7 +1,8 @@
 from datetime import datetime
-from serializers.exgauster import Exgauster
 
 from pydantic import BaseModel
+
+from serializers.exgauster import Exgauster
 
 
 class ResponseMessage(BaseModel):
