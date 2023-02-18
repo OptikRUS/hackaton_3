@@ -21,19 +21,26 @@ class AnalyzeRequest(BaseModel):
 
     @property
     def exgausters(self) -> dict:
-        exgausters: dict = dict(moment=1)
-        if self.exgauster_1_u_171:
-            exgausters.setdefault("exgauster_1_u_171", 1)
-        if self.exgauster_2_u_172:
-            exgausters.setdefault("exgauster_2_u_172", 1)
-        if self.exgauster_3_f_171:
-            exgausters.setdefault("exgauster_3_f_171", 1)
-        if self.exgauster_4_f_172:
-            exgausters.setdefault("exgauster_4_f_172", 1)
-        if self.exgauster_5_x_171:
-            exgausters.setdefault("exgauster_5_x_171", 1)
-        if self.exgauster_6_x_172:
-            exgausters.setdefault("exgauster_6_x_172", 1)
+        exgauster_fields = [
+            "exgauster_1_u_171",
+            "exgauster_2_u_172",
+            "exgauster_3_f_171",
+            "exgauster_4_f_172",
+            "exgauster_5_x_171",
+            "exgauster_6_x_172",
+        ]
+
+        all_none = all(getattr(self, field, None) is None for field in exgauster_fields)
+        if all_none:
+            exgausters = {field: 1 for field in exgauster_fields}
+        else:
+            exgausters = {
+                field: getattr(self, field, None)
+                for field in exgauster_fields
+                if getattr(self, field, None) is not None
+            }
+        exgausters["moment"] = 1
+
         return exgausters
 
 
