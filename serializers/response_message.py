@@ -5,6 +5,9 @@ from pydantic import BaseModel
 
 
 class ResponseMessage(BaseModel):
+    """
+    Модель ответа
+    """
     moment: datetime
     exgauster_1_u_171: Exgauster
     exgauster_2_u_172: Exgauster

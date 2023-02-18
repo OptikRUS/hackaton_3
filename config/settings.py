@@ -39,6 +39,9 @@ class KafkaSettings(AdvancedBaseSettings):
 
 
 class CORSSettings(AdvancedBaseSettings):
+    """
+    Настройки CORS
+    """
     allow_credentials: bool = Field(True)
     allow_methods: list[str] = Field(["*"])
     allow_headers: list[str] = Field(["*", "Authorization"])
@@ -46,6 +49,9 @@ class CORSSettings(AdvancedBaseSettings):
 
 
 class ApplicationSettings(AdvancedBaseSettings):
+    """
+    Настройки приложения FastAPI
+    """
     title: str = Field("Эксгаустер API")
     description = Field(
         "Прием и сохранение потока данных с эксгаустера и предоставления интерфейса доступа к этим данным"
@@ -55,6 +61,9 @@ class ApplicationSettings(AdvancedBaseSettings):
 
 
 class SiteSettings(AdvancedBaseSettings):
+    """
+    Настройки сайта
+    """
     host: str = Field("127.0.0.1", env="SITE_HOST")
     port: int = Field(8000, env="SITE_PORT")
     loop: str = Field("asyncio")  # для асинхронного дебага
@@ -64,10 +73,12 @@ class SiteSettings(AdvancedBaseSettings):
 
 
 class DataBaseCredentials(BaseSettings):
+    """
+    Настройки базы данных
+    """
     # mongodb
     host: str = Field("localhost", env="MONGO_DB_HOST")
     username: str = Field("mongo_user", env="MONGO_DB_USERNAME")
     password: str = Field("mongo_password", env="MONGO_DB_PASSWORD")
     port: str = Field("27017", env="DATABASE_PORT")
     db_name: str = Field("my_database", env="MONGO_DB_NAME")
-

@@ -3,11 +3,14 @@ from .request_message import RequestMessage
 
 
 def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
+    """
+    Билд для Эксгаустера № 2 (У-172)
+    """
     exgauster: Exgauster = Exgauster(
         bearing_1=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_43_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_101_,
                     alarm_min=msg.SM_Exgauster__2_110_,
                     warning_max=msg.SM_Exgauster__2_119_,
@@ -47,7 +50,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_2=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_44_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_102_,
                     alarm_min=msg.SM_Exgauster__2_111_,
                     warning_max=msg.SM_Exgauster__2_120_,
@@ -87,7 +90,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_3=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_45_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_103_,
                     alarm_min=msg.SM_Exgauster__2_112_,
                     warning_max=msg.SM_Exgauster__2_121_,
@@ -98,7 +101,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_4=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_47_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_104_,
                     alarm_min=msg.SM_Exgauster__2_113_,
                     warning_max=msg.SM_Exgauster__2_122_,
@@ -109,7 +112,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_5=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_48_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_105_,
                     alarm_min=msg.SM_Exgauster__2_114_,
                     warning_max=msg.SM_Exgauster__2_123_,
@@ -120,7 +123,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_6=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_49_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_106_,
                     alarm_min=msg.SM_Exgauster__2_115_,
                     warning_max=msg.SM_Exgauster__2_124_,
@@ -131,7 +134,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_7=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_50_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_107_,
                     alarm_min=msg.SM_Exgauster__2_116_,
                     warning_max=msg.SM_Exgauster__2_125_,
@@ -171,7 +174,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_8=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_51_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_108_,
                     alarm_min=msg.SM_Exgauster__2_117_,
                     warning_max=msg.SM_Exgauster__2_126_,
@@ -211,7 +214,7 @@ def build_exgauster_2_u_172(msg: RequestMessage) -> Exgauster:
         bearing_9=Bearing(
             heating_temperature=HeatingTemperature(
                 temperature=msg.SM_Exgauster__2_52_,
-                settings=SettingsInt(
+                settings=SettingsFloat(
                     alarm_max=msg.SM_Exgauster__2_109_,
                     alarm_min=msg.SM_Exgauster__2_118_,
                     warning_max=msg.SM_Exgauster__2_127_,

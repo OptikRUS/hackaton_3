@@ -5,18 +5,17 @@ from pydantic import BaseModel
 
 
 class SignalType(str, enum.Enum):
+    """
+    Модель типов сигналов
+    """
     digital = 'digital'
     analog = 'analog'
 
 
-class SettingsInt(BaseModel):
-    alarm_max: Optional[int]
-    alarm_min: Optional[int]
-    warning_max: Optional[int]
-    warning_min: Optional[int]
-
-
 class SettingsFloat(BaseModel):
+    """
+    Модель Уставки
+    """
     alarm_max: Optional[float]
     alarm_min: Optional[float]
     warning_max: Optional[float]
@@ -24,63 +23,99 @@ class SettingsFloat(BaseModel):
 
 
 class HeatingTemperature(BaseModel):
+    """
+    Модель температуры нагрева
+    """
     temperature: Optional[float]
-    settings: SettingsInt
+    settings: SettingsFloat
 
 
 class AxialVibration(BaseModel):
+    """
+    Модель осевой вибрации
+    """
     value: Optional[float]
     settings: SettingsFloat
 
 
 class HorizontalVibration(BaseModel):
+    """
+    Модель горизонтальной вибрации
+    """
     value: Optional[float]
     settings: SettingsFloat
 
 
 class VerticalVibration(BaseModel):
+    """
+    Модель вертикальной вибрации
+    """
     value: Optional[float]
     settings: SettingsFloat
 
 
 class Vibration(BaseModel):
+    """
+    Модель Вибрации
+    """
     axial: AxialVibration
     horizontal: HorizontalVibration
     vertical: VerticalVibration
 
 
 class Bearing(BaseModel):
+    """
+    Модель подшипника
+    """
     heating_temperature: HeatingTemperature
     vibration: Optional[Vibration]
 
 
 class Oil(BaseModel):
+    """
+    Модель Масла
+    """
     temperature_after: Optional[float]
     temperature_before: Optional[float]
 
 
 class Water(BaseModel):
+    """
+    Модель воды
+    """
     temperature_after: Optional[float]
     temperature_before: Optional[float]
 
 
 class Cooler(BaseModel):
+    """
+    Модель охладителя
+    """
     oil: Oil
     water: Water
 
 
 class GasManifold(BaseModel):
+    """
+    Модель газового коллектора
+    """
     temperature_before: Optional[float]
     underpressure_before: Optional[float]
 
 
 class ValvePosition(BaseModel):
+    """
+    Модель положения задвижки
+    """
     gas_valve_closed: Optional[float]
     gas_valve_open: Optional[float]
     gas_valve_position: Optional[float]
 
 
 class MainDrive(BaseModel):
+    """
+    Модель главного привода
+    """
     rotor_current: Optional[int]
     rotor_voltage: Optional[int]
     stator_current: Optional[int]
@@ -88,11 +123,17 @@ class MainDrive(BaseModel):
 
 
 class OilSystem(BaseModel):
+    """
+    Модель маслосистемы
+    """
     oil_level: Optional[float]
     oil_pressure: Optional[float]
 
 
 class Exgauster(BaseModel):
+    """
+    Модель Эксгаустера
+    """
     bearing_1: Bearing
     bearing_2: Bearing
     bearing_3: Bearing

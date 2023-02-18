@@ -5,6 +5,9 @@ from pydantic import BaseModel, Field
 
 
 class RequestMessage(BaseModel):
+    """
+    Модель запроса
+    """
     moment: datetime = Field(None, alias='moment')
     SM_Exgauster__0_0_: Optional[float] = Field(alias='SM_Exgauster\\[0:0]')
     SM_Exgauster__0_1_: Optional[float] = Field(alias='SM_Exgauster\\[0:1]')
