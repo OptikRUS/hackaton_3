@@ -21,3 +21,4 @@ async def websocket_endpoint(
             await websocket.send_json(data.json())
             await db[message.topic].insert_one(data.dict())
     await websocket.close()
+    await consumer.stop()

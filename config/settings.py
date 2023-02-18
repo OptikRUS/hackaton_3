@@ -36,6 +36,7 @@ class KafkaSettings(AdvancedBaseSettings):
     sasl_plain_password: str = Field("password", env="KAFKA_PASSWORD")
     auto_offset_reset: str = Field("earliest", env="KAFKA_AUTO_OFFSET_RESET")
     enable_auto_commit: bool = Field(False, env="KAFKA_ENABLE_AUTO_COMMIT")
+    group_id: str = Field("morty_python", env="KAFKA_GROUP_ID")
 
 
 class CORSSettings(AdvancedBaseSettings):
