@@ -2,7 +2,7 @@ import ssl
 
 from aiokafka import AIOKafkaConsumer
 
-from config import kafka_config, kafka_topics, kafka_ca_files
+from config import kafka_config, kafka_topics_ca
 
 
 class KafkaConsumerContextManager:
@@ -11,8 +11,8 @@ class KafkaConsumerContextManager:
     """
     def __init__(
             self,
-            topic: str = kafka_topics.get("topic_1"),
-            ca_file: str = kafka_ca_files.get("ca_file_1")
+            topic: str = kafka_topics_ca.get("default_topic"),
+            ca_file: str = kafka_topics_ca.get("default_ca_file_name")
     ):
         self.topic: str = topic
         self.ssl_context: ssl.SSLContext = ssl.create_default_context(cafile=ca_file)
