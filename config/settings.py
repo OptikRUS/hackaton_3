@@ -67,6 +67,7 @@ class SiteSettings(AdvancedBaseSettings):
     host: str = Field("127.0.0.1", env="SITE_HOST")
     port: int = Field(8000, env="SITE_PORT")
     loop: str = Field("asyncio")  # для асинхронного дебага
+
     log_level: str = Field("info", env="SITE_LOG_LEVEL")
     # reload: bool = Field(True, env="SITE_RELOAD")  # перезагрузка uvicorn
     reload_delay: float = Field(0.25, env="SITE_RELOAD_DELAY")
