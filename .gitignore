@@ -272,3 +272,6 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 !/data/
+/CA.pem
+/data/
+/venv-hackaton/
