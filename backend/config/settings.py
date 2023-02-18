@@ -11,18 +11,12 @@ class AdvancedBaseSettings(BaseSettings):
         env_file_encoding = "utf-8"
 
 
-class KafkaTopics(AdvancedBaseSettings):
+class KafkaTopicsCA(AdvancedBaseSettings):
     """
-    Топики для кафки
+    Топик и CA для кафки
     """
-    topic_1: str = Field("topic_1", env="KAFKA_TOPIC")
-
-
-class KafkaCAFiles(AdvancedBaseSettings):
-    """
-    CA файлы для кафки
-    """
-    ca_file_1: str = Field("ca_file_1", env="KAFKA_CA_FILE_1")
+    default_topic: str = Field("default_topic", env="KAFKA_TOPIC")
+    default_ca_file_name: str = Field("CA.pem", env="KAFKA_CA_FILE")
 
 
 class KafkaSettings(AdvancedBaseSettings):
