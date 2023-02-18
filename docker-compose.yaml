@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+  # mongo db service
   mongo:
     image: mongo
     restart: always
@@ -11,3 +12,13 @@ services:
       - "${MONGO_DB_PORT}:${MONGO_DB_PORT}"
     volumes:
       - ./data:/data/db
+
+  # application service
+  backend:
+    build: .
+    command: python /backend/run.py
+    ports:
+      - ${SITE_PORT}:${SITE_PORT}
+    depends_on:
+      - mongo
+    restart: always
