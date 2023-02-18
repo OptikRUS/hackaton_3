@@ -10,36 +10,36 @@ class SignalType(str, enum.Enum):
 
 
 class SettingsInt(BaseModel):
-    alarm_max: int
-    alarm_min: int
-    warning_max: int
-    warning_min: int
+    alarm_max: Optional[int]
+    alarm_min: Optional[int]
+    warning_max: Optional[int]
+    warning_min: Optional[int]
 
 
 class SettingsFloat(BaseModel):
-    alarm_max: float
-    alarm_min: float
-    warning_max: float
-    warning_min: float
+    alarm_max: Optional[float]
+    alarm_min: Optional[float]
+    warning_max: Optional[float]
+    warning_min: Optional[float]
 
 
 class HeatingTemperature(BaseModel):
-    temperature: float
+    temperature: Optional[float]
     settings: SettingsInt
 
 
 class AxialVibration(BaseModel):
-    value: float
+    value: Optional[float]
     settings: SettingsFloat
 
 
 class HorizontalVibration(BaseModel):
-    value: float
+    value: Optional[float]
     settings: SettingsFloat
 
 
 class VerticalVibration(BaseModel):
-    value: float
+    value: Optional[float]
     settings: SettingsFloat
 
 
@@ -55,13 +55,13 @@ class Bearing(BaseModel):
 
 
 class Oil(BaseModel):
-    temperature_after: float
-    temperature_before: float
+    temperature_after: Optional[float]
+    temperature_before: Optional[float]
 
 
 class Water(BaseModel):
-    temperature_after: float
-    temperature_before: float
+    temperature_after: Optional[float]
+    temperature_before: Optional[float]
 
 
 class Cooler(BaseModel):
@@ -70,26 +70,26 @@ class Cooler(BaseModel):
 
 
 class GasManifold(BaseModel):
-    temperature_before: float
-    underpressure_before: float
+    temperature_before: Optional[float]
+    underpressure_before: Optional[float]
 
 
 class ValvePosition(BaseModel):
-    gas_valve_closed: float
-    gas_valve_open: float
-    gas_valve_position: float
+    gas_valve_closed: Optional[float]
+    gas_valve_open: Optional[float]
+    gas_valve_position: Optional[float]
 
 
 class MainDrive(BaseModel):
-    rotor_current: int
-    rotor_voltage: int
-    stator_current: int
-    stator_voltage: int
+    rotor_current: Optional[int]
+    rotor_voltage: Optional[int]
+    stator_current: Optional[int]
+    stator_voltage: Optional[int]
 
 
 class OilSystem(BaseModel):
-    oil_level: float
-    oil_pressure: float
+    oil_level: Optional[float]
+    oil_pressure: Optional[float]
 
 
 class Exgauster(BaseModel):
@@ -107,4 +107,4 @@ class Exgauster(BaseModel):
     valve_position: ValvePosition
     main_drive: MainDrive
     oil_system: OilSystem
-    exgauster_work: int
+    exgauster_work: Optional[int]
