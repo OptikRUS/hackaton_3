@@ -1,4 +1,5 @@
-from fastapi import APIRouter, WebSocket, Depends
+from fastapi import APIRouter, WebSocket, Depends, BackgroundTasks
+from motor.motor_asyncio import AsyncIOMotorCollection
 
 from utils import KafkaConsumerContextManager, parse_and_build
 from serializers import AnalyzeRequest, AnalyzeResponse
@@ -12,16 +13,25 @@ router = APIRouter(prefix="/exgausters", tags=["exgausters"])
 @router.websocket("/{topic_name}")
 async def websocket_endpoint(
         websocket: WebSocket,
-        topic_name: str = kafka_topics_ca.get("default_topic"),
+        topic_name: str,
         db: Depends = Depends(init_database)
 ):
     await websocket.accept()
     async with KafkaConsumerContextManager(topic=topic_name) as consumer:
         async for message in consumer:
+            collection: AsyncIOMotorCollection = db[message.topic]
             print(f"Received message: {message}")
             data = parse_and_build(message)
             await websocket.send_json(data.json())
-            await db[message.topic].insert_one(data.dict())
+            await collection.insert_one(data.dict())
+            predict_collection: AsyncIOMotorCollection = db["predict_collection"]
+            if await collection.count_documents(filter={}) % 360 == 0:  # обновляет предсказание каждые 6 часов
+                pass  # вот тут будет функция вычисления
+            last_prediction = await predict_collection.find_one(sort=[('_id', -1)])
+            if last_prediction:
+                await predict_collection.replace_one(last_prediction, last_prediction)
+                await websocket.send_json(last_prediction.json())
+
     await websocket.close()
     await consumer.stop()
 
@@ -36,7 +46,18 @@ async def get_analyze(filters: AnalyzeRequest = Depends(), db: Depends = Depends
                 "$lte": filters.end_datetime
             }
         }
+    collection = db[filters.topic]
+    if not (limit := filters.limit):
+        limit: int = await collection.count_documents(filter={})
+        limit: int = int(limit/60) + 1
 
-    collection = db[filters.topic].find(query, filters.exgausters)
-    results = await collection.to_list(length=filters.limit)
+    skip: int = filters.skip
+    skip_step: int = filters.skip
+    results: list = []
+    for _ in range(limit):
+        collection = db[filters.topic].find(query, filters.exgausters).skip(skip).limit(1)
+        document = await collection.to_list(length=filters.limit)
+        results.extend(document)
+        skip += skip_step
+
     return results

@@ -12,6 +12,7 @@ class AnalyzeRequest(BaseModel):
     start_datetime: Optional[datetime]
     end_datetime: Optional[datetime]
     limit: Optional[int]
+    skip: Optional[int] = 60
     exgauster_1_u_171: Optional[int]
     exgauster_2_u_172: Optional[int]
     exgauster_3_f_171: Optional[int]
