@@ -80,7 +80,6 @@ const getBearing = (bearing?: BearingApi): InfoCardOption[] => {
 }
 
 const getDiffTimeInSeconds = (moment?: string | null | Date): number => {
-  console.log(moment)
   if (!moment) {
     return 0
   }
