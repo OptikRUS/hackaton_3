@@ -1,0 +1,53 @@
+.root {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 4px;
+  color: black;
+}
+
+
+.dangerous {
+  border: 1px solid #EB5835;
+  border-radius: 2px;
+  background: #FCDBCB;
+
+  svg {
+    stroke: #E32112;
+  }
+
+  :global(.paint) {
+    fill: #E32112;
+  }
+}
+
+
+.warning {
+  border: 1px solid #F69112;
+  border-radius: 2px;
+  background: #FEF1DB;
+
+  svg {
+    stroke: #F37E0D;
+  }
+
+  :global(.paint) {
+    fill: #F37E0D;
+  }
+
+}
+
+.secondary {
+  border: 1px solid #CCCCCC;
+  border-radius: 2px;
+  background: #F4F4F4;
+
+  svg {
+    stroke: #868686;
+  }
+
+  :global(.paint) {
+    fill: #868686;
+  }
+}

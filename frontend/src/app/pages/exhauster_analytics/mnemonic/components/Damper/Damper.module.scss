@@ -1,0 +1,39 @@
+@use 'src/styles' as *;
+
+
+.root {
+  position: relative;
+  width: 188px;
+  height: 192px;
+}
+
+
+.damper {
+  @include absolute($top: 0, $left: 0);
+}
+
+.union {
+  @include absolute($top: 138px, $left: 134px)
+}
+
+.percents {
+  @include absolute($top: 150px, $left: 180px)
+}
+
+.line {
+  height: 9px;
+  background: #4A8F40;
+  @include absolute($top: 150px, $right: 52px);
+
+  &_full {
+    width: 82px;
+  }
+
+  &_half {
+    width: 40px;
+  }
+
+  &_empty {
+    width: 0;
+  }
+}

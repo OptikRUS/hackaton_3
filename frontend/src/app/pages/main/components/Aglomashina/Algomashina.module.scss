@@ -1,0 +1,27 @@
+.root {
+  flex-grow: 1;
+}
+
+.header {
+  display: flex;
+  padding: 10px 20px;
+  align-items: center;
+  background: #F4F4F4;
+  border-radius: 4px 4px 0 0;
+  font-style: normal;
+  font-weight: 375;
+  font-size: 15px;
+  line-height: 133%;
+
+  text-transform: capitalize;
+
+  color: #6E6E6D;
+  margin-bottom: 10px;
+}
+
+
+.cardsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}

@@ -1,0 +1,36 @@
+.root {
+  background: #FFFFFF;
+  border-radius: 4px;
+}
+
+
+.header {
+  display: flex;
+  background: #6E6E6D;
+  border-radius: 4px 4px 0 0;
+  padding: 7px 14px;
+  justify-content: space-between;
+  align-items: center;
+
+  &__description {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #FFFFFF;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 17px;
+  }
+}
+
+.indicator {
+  margin: auto;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.image {
+  max-width: 100%;
+}

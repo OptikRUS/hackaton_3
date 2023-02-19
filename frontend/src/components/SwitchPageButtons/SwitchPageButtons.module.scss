@@ -1,0 +1,32 @@
+.root {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  width: 180px;
+  background: white;
+  padding: 6px;
+}
+
+
+.button {
+  color: #F9A823;
+
+  border-radius: 4px;
+  border: none;
+  padding: 5px 12px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #E8EAEA;
+    opacity: 0.8;
+  }
+
+  &.active {
+    color: black;
+    background: #FAB82E;
+  }
+}

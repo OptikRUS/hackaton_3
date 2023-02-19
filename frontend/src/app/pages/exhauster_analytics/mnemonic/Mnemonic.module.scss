@@ -1,0 +1,169 @@
+@use "src/styles" as *;
+
+.imageWrapper {
+  margin: 0 auto;
+  width: 1000px;
+  position: relative;
+}
+
+.image {
+  width: 100%
+}
+
+.info_card {
+  &_1 {
+    @include absolute($bottom: 66px, $right: -34px)
+  }
+
+  &_2 {
+    @include absolute($bottom: 50px, $left: 605px);
+  }
+
+  &_3 {
+    @include absolute($top: 210px, $left: 460px);
+  }
+
+  &_4 {
+    @include absolute($top: 210px, $left: 315px);
+  }
+
+  &_5 {
+    @include absolute($bottom: 140px, $left: 460px);
+  }
+
+  &_6 {
+    @include absolute($bottom: 140px, $left: 315px);
+  }
+
+  &_7 {
+    @include absolute($bottom: -12px, $left: 300px);
+  }
+
+  &_8 {
+    @include absolute($bottom: 80px, $left: -90px);
+  }
+
+  &_9 {
+    @include absolute($bottom: 250px, $left: -100px);
+  }
+}
+
+
+.pk {
+  &_1 {
+    @include absolute($top: 305px, $left: 957px)
+  }
+
+  &_2 {
+    @include absolute($top: 304px, $left: 653px)
+  }
+
+  &_3 {
+    @include absolute($top: 325px, $left: 474px)
+  }
+
+  &_4 {
+    @include absolute($top: 325px, $left: 400px)
+  }
+
+  &_5 {
+    @include absolute($top: 395px, $left: 474px)
+  }
+
+  &_6 {
+    @include absolute($top: 395px, $left: 400px)
+  }
+
+  &_7 {
+    @include absolute($top: 407px, $left: 224px)
+  }
+
+  &_8 {
+    @include absolute($top: 409px, $left: 47px)
+  }
+
+  &_9 {
+    @include absolute($top: 381px, $left: 47px)
+  }
+}
+
+.damper {
+  @include absolute($top: 482px, $left: 48px)
+}
+
+.gaz {
+  &_progress {
+    border: 2px solid #8D9595;
+    border-radius: 2px;
+    @include absolute($top: 160px, $left: 73px);
+    width: 150px;
+    height: 46px;
+  }
+
+  &_info {
+    @include absolute($top: 209px, $left: 68px);
+  }
+}
+
+.soil {
+  &_progress {
+    @include absolute($top: 93px, $left: 493px);
+    width: 194px;
+    height: 49px;
+  }
+
+  &_level {
+    @include absolute($top: 203px, $left: 921px);
+    border: 2px solid #8D9595;
+    border-radius: 2px;
+    width: 194px;
+    height: 49px;
+  }
+}
+
+
+.main_drive {
+  @include absolute($top: 301px, $left: 717px);
+}
+
+.moment_info {
+  @include absolute($top: 0, $left: -80px);
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background: #6EA566;
+  border-radius: 5px;
+  color: white;
+  box-sizing: content-box;
+  padding: 10px;
+}
+
+.sensor {
+  font-size: 15px;
+  width: 50px;
+  padding: 5px;
+  box-sizing: content-box;
+  &_from {
+    &_in {
+      @include absolute($top: 19px, $left: 787px);
+    }
+
+    &_out {
+      @include absolute($top: 19px, $left: 865px);
+    }
+  }
+
+  &_inside {
+    &_left {
+      @include absolute($top: 104px, $left: 714px);
+    }
+
+    &_bottom {
+      @include absolute($top: 173px, $left: 829px);
+    }
+  }
+
+
+}

@@ -1,0 +1,39 @@
+.root {
+  width: 120px;
+  background: #414F4F;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.title {
+  border: 1px solid #8D9595;
+  color: white;
+  text-align: center;
+  padding: 2px 0;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option {
+  color: white;
+  display: flex;
+  width: 100%;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 5px;
+  margin-bottom: 4px;
+
+  &_dangerous {
+    background: #EB5835;
+  }
+
+  &_warning {
+    background: #FAB82E;
+  }
+}

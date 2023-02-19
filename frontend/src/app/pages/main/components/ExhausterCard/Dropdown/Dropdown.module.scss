@@ -1,0 +1,33 @@
+.dropdown {
+  margin-bottom: 10px;
+  &_title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+
+  &_option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    background: #FAFAFA;
+    margin-bottom: 4px;
+  }
+
+  &_alertWrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.button {
+  transition: all 0.1s linear;
+}
+
+.is_clicked {
+  transform: rotateZ(90deg);
+}

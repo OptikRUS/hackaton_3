@@ -1,12 +1,18 @@
-import React from 'react';
-import { Main } from './pages/main'
+import React from 'react'
+import { CustomProvider } from 'rsuite'
+import * as locales from 'rsuite/locales'
+import { RootStoreProvider } from '@config/store/provider'
+import { AppWS } from './AppWS'
 
 function App() {
   return (
-    <div className="App">
-      <Main/>
-    </div>
-  );
+    <CustomProvider locale={locales['ruRU']}>
+      <RootStoreProvider>
+        <AppWS/>
+      </RootStoreProvider>
+    </CustomProvider>
+
+  )
 }
 
-export default App;
+export default App

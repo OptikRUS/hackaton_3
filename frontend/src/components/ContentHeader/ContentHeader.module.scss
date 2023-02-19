@@ -1,0 +1,17 @@
+.root {
+  width: 100%;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 7px 14px;
+  border: 1px solid #EAEAEA;
+  border-radius: 5px 5px 0 0;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+}

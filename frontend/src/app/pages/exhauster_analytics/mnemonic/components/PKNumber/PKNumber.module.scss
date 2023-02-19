@@ -1,0 +1,21 @@
+.root {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_dangerous {
+    background: #FCDBCB;
+    border: 2px solid #E32112;
+  }
+
+  &_warn {
+    background: #FEF1DB;
+    border: 2px solid #F69112;
+  }
+  &_secondary {
+    border: 2px solid #414F4F;
+  }
+}
